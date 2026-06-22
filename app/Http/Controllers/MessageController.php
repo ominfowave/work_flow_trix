@@ -18,12 +18,6 @@ class MessageController extends Controller
             $receiver_id = $request->receiver_active_id;
             $offset = $request->offset ?? 0;
 
-            // $messages = Message::with('messageFile')->select('messages.*', 'users.id as user_id')->leftJoin('users', 'users.id', 'messages.receiver_id')->where(function($q) use($receiver_id, $sender_id){
-            //     $q->where('sender_id', $sender_id)->where('receiver_id', $receiver_id);
-            // })->orWhere(function($q) use($receiver_id, $sender_id){
-            //     $q->where('sender_id', $receiver_id)->where('receiver_id', $sender_id);
-            // })->limit(10)->get();
-
             $totalCount = Message::where(function ($q) use ($receiver_id, $sender_id) {
                     $q->where('sender_id', $sender_id)
                         ->where('receiver_id', $receiver_id);

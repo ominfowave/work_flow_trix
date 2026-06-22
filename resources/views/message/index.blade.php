@@ -320,8 +320,6 @@
             },
             success: function(response) {
                 if(!response.showMore){
-                    console.log(11);
-                    
                     btn.closest('.jsshowmoreEle').remove();
                 }
                 $('.jsMessageInner').prepend(response.html);
@@ -439,6 +437,7 @@
 
             var url = '{{route("message.index")}}';
             var receiverName = currentEle.find(".jsRecName").text();
+            $(document).find(".jsshowmoreEle").remove();
 
             $.ajax({
                 url: url,
