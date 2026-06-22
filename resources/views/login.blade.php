@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Work Flowtrix</title>
+    <title>Login</title>
+    <link rel="icon" type="image/png" href="{{asset('/images/new_logo.png')}}">
+
     <link rel="stylesheet" href="{{asset('/css/all.min.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('/css/style.css')}}" />
 </head>

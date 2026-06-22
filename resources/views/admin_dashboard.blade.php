@@ -1,4 +1,6 @@
 @extends('layouts.main')
+@section('title', 'Dashboard')
+
 @section("content")
 <div  class="newmessage-details">
     <div class="total-no-of-project">

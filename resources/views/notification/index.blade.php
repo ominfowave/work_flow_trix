@@ -1,4 +1,6 @@
 @extends('layouts.main')
+@section('title', 'Notifications')
+
 @section("content")
     <div id="notification_details" class="newmessage-details">
         <div class="projectsmain">

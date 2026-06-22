@@ -1,4 +1,6 @@
 @extends('layouts.main')
+@section('title', 'Role Update')
+
 @section("content")
     <div id="new_message" class="newmessage-details">
          <!-- create role -->

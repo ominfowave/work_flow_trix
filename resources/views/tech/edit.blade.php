@@ -1,4 +1,6 @@
 @extends('layouts.main')
+@section('title', 'Tech Update')
+
 @section("content")
     <div id="new_message" class="newmessage-details">
          <!-- create tech -->

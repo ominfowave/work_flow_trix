@@ -1,4 +1,6 @@
 @extends('layouts.main')
+@section('title', 'Messages')
+
 @section('style')
   <link rel="stylesheet" type="text/css" href="css/jquery.emojipicker.css">
   <link rel="stylesheet" type="text/css" href="css/jquery.emojipicker.tw.css">
