@@ -287,6 +287,7 @@
                     'X-CSRF-TOKEN': '{{ csrf_token() }}'
                 },
                 success: function(response){
+                    $(document).find(".jsNoMsg").remove();
                     // $(document).find('.jsUserDetails.active').trigger('click');
                     $(document).find(".jsMessageInner").append(response.html);
     
@@ -461,7 +462,8 @@
                                      
                         $(".jsMessageInner").html(response.html);
                     }else{
-                        $(".jsMessageInner").html('<p style="text-align:center">No messages found.</p>');
+                        $(".message-body").find(".jsshowmoreEle").remove();
+                        $(".jsMessageInner").html('<p class="jsNoMsg" style="text-align:center">No messages found.</p>');
                     }
                     $(".jsEmptyChat").css("display","none");
                     scrollToBottom();

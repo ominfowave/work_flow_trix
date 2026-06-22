@@ -24,7 +24,22 @@
                                 <div class="client_project-desc">
                                     <div class="admin-role-left admin-users">
                                         <div class="project-name-dt cient_project-name-dt">
-                                            <div class="project-name"><p>{{ $role->name }}</p></div>
+                                            <div class="project-name">
+                                                <p>{{ $role->name }}</p>
+                                                @if (count($role->permissions))
+                                                    <br>
+                                                    <p style="font-size: 12px">
+                                                        <b>Permission:</b>
+                                                        @foreach ($role->permissions as $itemkey => $item)
+                                                            @if ($role->permissions->keys()->last() == $itemkey)
+                                                                {{ $item['name'] . "." }}
+                                                            @else    
+                                                                {{ $item['name'] . "," }}
+                                                            @endif
+                                                        @endforeach
+                                                    </p>
+                                                @endif
+                                            </div>
                                         </div>
                                     </div>
 

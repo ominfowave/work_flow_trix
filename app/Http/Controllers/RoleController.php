@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\PermissionRegistrar;
+use Illuminate\Support\Facades\DB;
 
 class RoleController extends Controller
 {
@@ -24,7 +25,7 @@ class RoleController extends Controller
 
     public function index()
     {
-        $roles = Role::where('name','!=','Super-admin')->get();
+        $roles = Role::with('permissions')->where('name', '!=', 'Super-admin')->get();
         $this->data['roles'] = $roles;
 
         return view('role.index', $this->data);
