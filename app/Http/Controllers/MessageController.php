@@ -87,6 +87,7 @@ class MessageController extends Controller
             [$currentUserId, $currentUserId, $currentUserId, $currentUserId, $currentUserId]
         )
         ->where('users.id', '!=', $currentUserId)
+        ->where('users.status', 'active')
         ->get();
 
         $this->data['userList'] = $userList;

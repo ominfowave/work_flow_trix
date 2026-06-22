@@ -37,8 +37,8 @@ class AdminController extends Controller
      */
     public function create()
     {
-        $roles = Role::where('name', '!=', 'Super-admin')->pluck('name', 'id')->toArray();
-        $techs = Tech::pluck('tech_name', 'id')->toArray();
+        $roles = Role::where('name', '!=', 'Super-admin')->where('status', 'active')->pluck('name', 'id')->toArray();
+        $techs = Tech::pluck('tech_name', 'id')->where('status', 'active')->toArray();
 
         $this->data['roles'] = $roles;
         $this->data['techs'] = $techs;

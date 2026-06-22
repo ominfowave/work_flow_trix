@@ -36,10 +36,10 @@
     
                     <!-- Password -->
                     <div class="input-box password-box">
-                        <input type="password" id="password" placeholder=" " name="password">
+                        <input type="password" id="password" placeholder=" " name="password" class="jspassword">
                         <label>Password</label>
     
-                        <i class="fa-regular fa-eye-slash" id="eye"></i>
+                        <i class="fa-regular fa-eye-slash jsViewPass" id="eye"></i>
                     </div>
                     
                     
@@ -63,5 +63,18 @@
 
 
 </body>
-
+<script src="{{asset('./js/jquery.min.js')}}"></script>    
+<script>
+    $(document).ready(function(){
+        $(document).on("click", ".jsViewPass", function(){
+            if($(this).hasClass("fa-eye-slash")){
+                $(this).removeClass("fa-eye-slash").addClass("fa-eye");
+                $(".jspassword").attr("type", "text");
+            }else{
+                $(this).addClass("fa-eye-slash").removeClass("fa-eye");
+                $(".jspassword").attr("type", "password");
+            }
+        });
+    });
+</script>
 </html>
