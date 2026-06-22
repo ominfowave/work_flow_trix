@@ -132,7 +132,7 @@
     channel.bind('new-message', function(data) {
         var currentMsgActive = $(document).find(".jsmsgContent").attr("data-receiver_id");
         
-        // console.log(data);
+        console.log(data);
         
         if(data.message.sender_id == currentMsgActive){
             let chatBox = $(document).find('.jsMessageInner');
