@@ -49,7 +49,7 @@ class MessageController extends Controller
             ]);
         }
 
-        $currentUserId = auth()->guard('admin')->id();
+        $currentUserId = $sender_id;
 
         $userList = Admin::selectRaw(
             'users.*,
