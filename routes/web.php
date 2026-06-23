@@ -36,7 +36,7 @@ Route::get('/db-seed', function(){
 
 Route::middleware('admin')->group(function () {
     // dashboard
-    Route::get('/', [DashboardController::class, 'dashboard'])->name('admin_dashboard');
+    Route::get('/', [DashboardController::class, 'dashboard']);
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('admin_dashboard');
 
     Route::post('/dashboard-read', [DashboardController::class, 'dashboardRead'])->name('dashboardRead');
