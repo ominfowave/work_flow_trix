@@ -72,6 +72,8 @@
 
 <script src="{{asset('./js/jquery.min.js')}}"></script>    
 <script src="{{asset('./js/cust.js')}}"></script>   
+<script src="{{asset('js/pusher.min.js')}}"></script>
+
      @yield("script")
 
 @include('layouts.script') 

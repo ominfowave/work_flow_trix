@@ -3,7 +3,7 @@
 
 @section('style')
   <link rel="stylesheet" type="text/css" href="css/jquery.emojipicker.css">
-  <link rel="stylesheet" type="text/css" href="css/jquery.emojipicker.tw.css">
+  <link rel="stylesheet" type="text/css" href="css/jquery.emojipicker.g.css">
 
 @endsection
 @section("content")
@@ -114,9 +114,8 @@
     <!-- end chatbox -->
 @endsection
 @section('script')
-<script src="{{asset('js/pusher.min.js')}}" defer></script>
-<script type="text/javascript" src="js/jquery.emojipicker.js" defer></script>
-<script type="text/javascript" src="js/jquery.emojis.js" defer></script>
+<script type="text/javascript" src="js/jquery.emojipicker.js"></script>
+<script type="text/javascript" src="js/jquery.emojis.js"></script>
 
 <script>
     $(function () {
