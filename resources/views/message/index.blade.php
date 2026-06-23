@@ -115,8 +115,8 @@
 @endsection
 @section('script')
 <script src="{{asset('js/pusher.min.js')}}"></script>
-  <script type="text/javascript" src="js/jquery.emojipicker.js"></script>
-  <script type="text/javascript" src="js/jquery.emojis.js"></script>
+<script type="text/javascript" src="js/jquery.emojipicker.js" defer></script>
+<script type="text/javascript" src="js/jquery.emojis.js" defer></script>
 
 <script>
 
