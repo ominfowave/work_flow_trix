@@ -2,14 +2,14 @@
 @section('title', 'Messages')
 
 @section('style')
-  <link rel="stylesheet" type="text/css" href="css/jquery.emojipicker.css">
-  <link rel="stylesheet" type="text/css" href="css/jquery.emojipicker.tw.css">
+  {{-- <link rel="stylesheet" type="text/css" href="css/jquery.emojipicker.css">
+  <link rel="stylesheet" type="text/css" href="css/jquery.emojipicker.tw.css"> --}}
 
 @endsection
 @section("content")
     <!-- chatbox -->
     
-    <div class="main-chat-details">
+    {{-- <div class="main-chat-details">
         <div class="chat-details">
             <div class="chart-search-box">
                 <input type="text" class="jsUserSearch" placeholder="Search.....">
@@ -109,12 +109,12 @@
 
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- end chatbox -->
 @endsection
 @section('script')
-<script src="{{asset('js/pusher.min.js')}}"></script>
+{{-- <script src="{{asset('js/pusher.min.js')}}"></script>
 <script type="text/javascript" src="js/jquery.emojipicker.js" defer></script>
 <script type="text/javascript" src="js/jquery.emojis.js" defer></script>
 
@@ -601,6 +601,6 @@
             link.click();
         });
     });
-</script>
+</script> --}}
          
  @endsection
