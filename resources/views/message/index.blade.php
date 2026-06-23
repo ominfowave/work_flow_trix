@@ -119,7 +119,7 @@
 <script type="text/javascript" src="js/jquery.emojis.js" defer></script>
 
 <script>
-    $(document).ready(function () {
+    $(function () {
         Pusher.logToConsole = true;
         var receiver_id = '{{auth()->guard("admin")->id()}}';
         var pusher_app_key = '{{ ENV('PUSHER_APP_KEY') }}';
