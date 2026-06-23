@@ -1,11 +1,6 @@
 @extends('layouts.main')
 @section('title', 'Messages')
 
-@section('style')
-  <link rel="stylesheet" type="text/css" href="css/jquery.emojipicker.css">
-  <link rel="stylesheet" type="text/css" href="css/jquery.emojipicker.g.css">
-
-@endsection
 @section("content")
     <!-- chatbox -->
     
@@ -114,8 +109,7 @@
     <!-- end chatbox -->
 @endsection
 @section('script')
-<script type="text/javascript" src="js/jquery.emojipicker.js"></script>
-<script type="text/javascript" src="js/jquery.emojis.js"></script>
+
 
 <script>
     $(function () {
