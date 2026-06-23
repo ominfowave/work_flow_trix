@@ -21,7 +21,7 @@
             <form action="{{route('submitLogin')}}" method="post" >
                 @csrf
                 <div class="loginbox-bg">
-                    <div class="logo-details login_desc"><img src="{{asset('/images/login-logo.svg')}}" alt=""></div>
+                    <div class="logo-details login_desc"><img src="{{asset('/images/new_logo.png')}}" alt=""></div>
                     <h2>Login to Work flowtrix</h2>
                     <!-- Username -->
                     @if(session('error'))

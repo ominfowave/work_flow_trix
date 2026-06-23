@@ -956,7 +956,7 @@ button.delete-profile-btn {background: #DF1010;    border: none;color: #fff; pad
     .chatbox-body{padding: 0;}
     /* .chatbox-inputbox{width: calc(100% - 20px);bottom: 10px;} */
     
-    .logo-details a{width: 40px;float: left;overflow: hidden;}
+    .logo-details a{width: 90px;float: left;overflow: hidden;}
     .project-name p{padding: 11px 0;}
     .leftarrow{float: right;}
     .chat-arrow-left button{top: 15px;left: 15px;}

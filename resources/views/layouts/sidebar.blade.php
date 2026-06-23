@@ -17,7 +17,7 @@
                 </li>
             @endif
 
-            <li><a href="{{route('message.index')}}" id="" class="{{ request()->routeIs('message.*') ? 'active' : '' }}"><img src="{{asset('/images/message-icon.svg')}}" alt=""><span>Messages</span></a></li>
+            <li><a href="{{route('message.index')}}" id="" class="{{ request()->routeIs('message.*') ? 'active' : '' }}"><img src="{{asset('/images/message-icon.svg')}}" alt=""><span>Inbox</span></a></li>
 
             @if ($user->hasAnyPermission(['user-add', 'user-edit','user-delete', 'user-view']))
                 <li>
