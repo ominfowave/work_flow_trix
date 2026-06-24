@@ -9,7 +9,7 @@
                 <img src="{{asset('/images/search-icon.svg')}}" alt="">
             </div>
             <div class="filter-with-project-no">
-                <button type="button" class="filter-icon"><img src="{{asset('/images/filter-icon.svg')}}" alt=""> <span>Filter</span></button>
+                {{-- <button type="button" class="filter-icon"><img src="{{asset('/images/filter-icon.svg')}}" alt=""> <span>Filter</span></button> --}}
                 <div class="btn-no-project">
                     <button class="total-project-no">{{$total_project ?? 0}}</button>
                     <button class="total-project">Projects</button>
