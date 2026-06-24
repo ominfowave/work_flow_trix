@@ -99,7 +99,8 @@ p{line-height: 22px;font-size: 14px;text-align: left;color: #2F2F2F;}
 .icon-desc button {    border: none;    outline: none;    background: transparent;    cursor: pointer;}
 .icon-desc button.btn-icon {outline: none;background: #fff;cursor: pointer; border: 1px solid #E0E0E0;border-radius: 50%;width: 50px;height: 50px;line-height: 65px;border-radius: 50%;}
 .notification {position: absolute;top: 9px;right: 9px;width: 15px;height: 15px;background: red;line-height: 15px;border-radius: 50%;color: #fff;font-size: 9px; text-align: center;}
-
+button.btn-icon.logout-btn {    line-height: 0px;}
+button.btn-icon.logout-btn img {    max-width: 20px;}
 /* end headersection */
 
 .menuIcon{display: none;}
@@ -1042,6 +1043,9 @@ button.delete-profile-btn {background: #DF1010;    border: none;color: #fff; pad
     .admin-clients-right{width: 100%; justify-content: start;        padding: 0px 0px 15px 17px;        margin-top: 0;}
     .admin-clients-left .project-name-dt .project-name p {    padding: 0px;}
     .admin-tech-main {    grid-template-columns: repeat(2, 1fr);}
+
+    .total-no-of-project.search-with-filter-no{flex-direction: column; gap: 30px;}
+    .filter-with-project-no{width: 100%; justify-content: center;}
 }
 
 

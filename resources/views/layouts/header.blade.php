@@ -21,7 +21,7 @@
                                 @endif
                             </button>
                         </a>
-                        
+
                         <div class="notifiPop" style="{{$notiCount <= 0 ? 'display:none;' : ''}}">
                             <ul>
                                 @if ($notiCount > 0)
@@ -38,6 +38,12 @@
                             <a href="{{route('notifications')}}">View All</a>
                         </div>
                     </div>
+
+                    <a data-href="{{route('admin_logout')}}" class="jsLogout" id="">
+                        <div class="icon-desc">
+                            <button type="button" class="btn-icon logout-btn" id=""><img src="./images/logout.svg" alt=""></button>
+                        </div>
+                    </a>
                 </div>
 
                 <div class="menuIcon">

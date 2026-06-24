@@ -36,14 +36,6 @@
                     <a href="{{route('role.index')}}" class="{{ request()->routeIs('role.*') ? 'active' : '' }}"><img src="{{asset('/images/role-icon.svg')}}" alt=""><span>Roles</span></a>
                 </li>
             @endif
-
-            <li>
-                <a data-href="{{route('admin_logout')}}" class="jsLogout" id="">
-                    <img src="{{asset('/images/logout-icon.svg')}}" alt=""><span>Logout</span>
-                </a>
-            </li>
-
-
         </ul>
     </div>
 </div>
