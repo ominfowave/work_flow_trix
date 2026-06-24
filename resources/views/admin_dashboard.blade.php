@@ -3,12 +3,19 @@
 
 @section("content")
 <div  class="newmessage-details">
-    <div class="total-no-of-project">
-        <div class="btn-no-project">
-            <button class="total-project-no">{{$total_project ?? 0}}</button>
-            <button class="total-project">Projects</button>
+       <div class="total-no-of-project search-with-filter-no">
+            <div class="form-input search-icon">
+                <input type="text" placeholder="Search" class="jsSearch">
+                <img src="{{asset('/images/search-icon.svg')}}" alt="">
+            </div>
+            <div class="filter-with-project-no">
+                <button type="button" class="filter-icon"><img src="{{asset('/images/filter-icon.svg')}}" alt=""> <span>Filter</span></button>
+                <div class="btn-no-project">
+                    <button class="total-project-no">{{$total_project ?? 0}}</button>
+                    <button class="total-project">Projects</button>
+                </div>
+            </div>
         </div>
-    </div>
 
     <div class="project-tabs">
         <ul class="tabs">
@@ -17,28 +24,25 @@
                 $unapproved_project_count = $read_count_pro_unaproved ?? 0;
                 $unapproved_client_count = $read_count_client ?? 0;
             @endphp
-            <li>
-                <a href="#;" class="active latest_project jstab" data-tab="latest_project">
-                    Latest Projects 
-                    @if($latest_project_count > 0)
-                        <span>{{$latest_project_count}}</span>
-                    @endif
+            <li><a href="#;" class="active latest_project jstab" data-tab="latest_project">
+                Latest Projects
+                @if($latest_project_count > 0)
+                    <span>{{$latest_project_count}}</span>
+                @endif
                 </a>
             </li>
-            <li>
-                <a href="#;" class="unapproved_project jstab" data-tab="unapproved_project">
-                    Unapproved Projects 
-                    @if($unapproved_project_count > 0)
-                        <span>{{$unapproved_project_count}}</span>
-                    @endif
+            <li><a href="#;" class="unapproved_project jstab" data-tab="unapproved_project">
+                Unapproved Projects 
+                @if($unapproved_project_count > 0)
+                    <span>{{$unapproved_project_count}}</span>
+                @endif
                 </a>
             </li>
-            <li>
-                <a href="#;" class="unapproved_client jstab" data-tab="unapproved_client">
-                    Unapproved Clients
-                    @if($unapproved_client_count > 0)
-                        <span>{{$unapproved_client_count}}</span>
-                    @endif
+            <li><a href="#;" class="unapproved_client jstab" data-tab="unapproved_client">
+                Unapproved Clients
+                @if($unapproved_client_count > 0)
+                    <span>{{$unapproved_client_count}}</span>
+                @endif
                 </a>
             </li>
         </ul>
@@ -107,7 +111,6 @@
 
     <div class="tabs-details unapproved_client_content" id="tab3">
         <div class="projectsmain">
-            {{-- @dd($unapproved_client) --}}
              @if (count($unapproved_client) > 0)
                 @foreach ($unapproved_client as $item)
                     <div class="projectsdetails">
@@ -141,3 +144,29 @@
 
 </div>
 @endsection
+
+<script src="{{asset('./js/jquery.min.js')}}"></script>    
+
+<script>
+    $(document).ready(function(){
+        $(document).on("keyup", ".jsSearch", function(){
+           var search_input = $(this).val();
+
+            var active_tab = $(document).find(".jstab.active").attr("data-tab");
+            
+            $.ajax({
+                url: '{{route("admin_dashboard")}}',
+                type: 'GET',
+                data: {"active_tab": active_tab, 'search':search_input},
+                success: function(response){
+                    console.log(response.html);
+                    
+                    if(response.success){
+                        $("." + active_tab + "_content .projectsmain").html(response.html);
+                    }
+                }
+            });
+        });
+    });
+    
+</script>

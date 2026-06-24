@@ -25,10 +25,16 @@ class LoginController extends Controller
         $remember = $request->has('remember');
 
         if(auth()->guard('admin')->attempt($credentials, $remember)){
-            $request->session()->regenerate();
 
+            if( auth()->guard('admin')->user()->status == 'active'){
+                $request->session()->regenerate();
+    
+                return redirect()->route('admin_dashboard')->with('success', 'Login Successfully');        
+            }else{
+                auth()->guard('admin')->logout();
 
-            return redirect()->route('admin_dashboard')->with('success', 'Login Successfully');        
+                return back()->with('error', 'Your account has been deactivated. Please contact the administrator.');
+            }
         }
 
 

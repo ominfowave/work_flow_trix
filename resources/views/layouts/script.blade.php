@@ -208,6 +208,8 @@
          if(tabClass == 'unapproved_client' && Number(unapproved_client_count) !== Number(0)){
             dashboardRead(tabClass);
         }
+
+        $('.jsSearch').trigger('keyup');
     });
 
     var is_admin_dashboard = '{{$is_admin_dashboard ?? false}}';
