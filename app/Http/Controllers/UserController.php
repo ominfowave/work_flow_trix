@@ -25,12 +25,12 @@ class UserController extends Controller
             $input = $request->all();
 
             $input['password'] = bcrypt($input['password']);
-            // $input['status'] = 'active';
+            $input['status'] = 'inactive';
             $input['full_name'] = $input['name'];
 
             $admin = Admin::create($input);
 
-            auth()->guard('admin')->login($admin);
+            // auth()->guard('admin')->login($admin);
 
             $superAdmin = Admin::select('id', 'name')->where('name', 'vishal')->first();
 

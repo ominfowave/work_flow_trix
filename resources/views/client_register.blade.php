@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>User Register</title>
+    <title>Client Register</title>
     <link rel="icon" type="image/png" href="{{asset('/images/new_logo.png')}}">
 
     <link rel="stylesheet" href="{{asset('/css/all.min.css')}}"/>
@@ -18,7 +18,7 @@
 <div class="login-body-register">    
     <div class="loginbox">
         <div class="main_container">
-            <form action="{{route('user_register')}}" method="post" class="userRegisForm">
+            <form action="{{route('client_register')}}" method="post">
                 @csrf
                 <div class="loginbox-bg-register">
                     <div class="logo-details login_desc-register"><img src="{{asset('/images/new_logo.png')}}" alt=""></div>
@@ -38,7 +38,7 @@
                     </div>
 
                     <div class="input-box">
-                        <input type="number" id="contact_number" placeholder=" " name="contact_number" value="{{old('contact_number') ?? ''}}">
+                        <input type="number" id="contact_number" placeholder=" " name="phone" value="{{old('phone') ?? ''}}">
                         <label>Contact Number</label>
                     </div>
 

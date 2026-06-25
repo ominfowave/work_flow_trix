@@ -24,6 +24,10 @@ use Illuminate\Support\Facades\Artisan;
 Route::get('/register/users', [UserController::class, 'create']);
 Route::post('/register/store', [UserController::class, 'store'])->name('user_register');
 
+Route::get('/register/clients', [ClientController::class, 'registerClient']);
+Route::post('/register/client/store', [ClientController::class, 'storeClient'])->name('client_register');
+
+
 // login routes
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('admin_login')->middleware('admin_guest');
 Route::post('/submit-login', [LoginController::class, 'submitLogin'])->name('submitLogin')->middleware('admin_guest');

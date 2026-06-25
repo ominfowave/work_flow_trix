@@ -147,9 +147,6 @@ class ClientController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy($id)
     {
         try {
@@ -209,4 +206,49 @@ class ClientController extends Controller
         }
     }
 
+    public function registerClient(Request $request){
+
+        return view('client_register');
+    }
+
+    public function storeClient(Request $request){
+        try{
+            $request->validate([
+                'name' => 'required|string|max:100',
+                'phone' => 'required|integer|min:10',
+                'email' => 'required|email',
+                'password' => 'required|min:6'
+            ]);
+
+            $input = $request->all();
+
+            $input['password'] = bcrypt($input['password']);
+            $input['status'] = 'inactive';
+
+            $client = Client::create($input);
+
+            // auth()->guard('admin')->login($admin);
+
+            $superAdmin = Admin::select('id', 'name')->where('name', 'vishal')->first();
+
+            $notification = [
+                'user_id' => $client->id,
+                'sender_id' => $client->id,
+                'receiver_id' => $superAdmin->id,
+                'title' => $request->name ?? '',
+                'message' => $request->email .'<br>'. $request->contact_number,
+                'notification_label' => 'New Client ' .'<b>'. $request->name . '</b>'. ' has been created',
+                'table_id' => $client->id,
+                'table_name' => 'clients',
+                'is_read' => '1'
+            ];
+
+            Notification::create($notification);
+
+            return redirect()->route('admin_dashboard');
+        } catch (\Illuminate\Validation\ValidationException $th) {
+
+            return back()->withErrors($th->validator)->withInput();            
+        }
+    }
 }
