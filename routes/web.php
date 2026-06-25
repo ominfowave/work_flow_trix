@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{LoginController, DashboardController, ClientController, MessageController, TechController, RoleController, AdminController, ProjectController, ProjectTimelineController, NotificationController};
+use App\Http\Controllers\{LoginController, DashboardController, ClientController, MessageController, TechController, RoleController, AdminController, ProjectController, ProjectTimelineController, NotificationController, UserController};
 use App\Events\MessageSent;
 use Illuminate\Http\Request;
 use App\Models\Message;
@@ -21,6 +21,8 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
+Route::get('/register/users', [UserController::class, 'create']);
+Route::post('/register/store', [UserController::class, 'store'])->name('user_register');
 
 // login routes
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('admin_login')->middleware('admin_guest');

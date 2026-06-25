@@ -41,7 +41,7 @@
 
                     <a data-href="{{route('admin_logout')}}" class="jsLogout" id="">
                         <div class="icon-desc">
-                            <button type="button" class="btn-icon logout-btn" id=""><img src="./images/logout.svg" alt=""></button>
+                            <button type="button" class="btn-icon logout-btn" id=""><img src="{{asset('/images/logout.svg')}}" alt=""></button>
                         </div>
                     </a>
                 </div>
