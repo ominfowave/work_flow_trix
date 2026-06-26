@@ -25,9 +25,15 @@ class AdminController extends Controller
     {
         $admins = Admin::with('role')->whereHas('role', function($query) {
              $query->where('name', '!=', 'Super-admin');
-        })->get();
+        });
+
+        $user = auth()->guard("admin")->user();
+
+        if(!$user->hasRole('Super-admin')){
+            $admins = $admins->where('user_id', $user->id);
+        }
         
-        $this->data['admins'] = $admins;
+        $this->data['admins'] = $admins->get();
 
         return view('admin.index', $this->data);
     }
@@ -63,6 +69,10 @@ class AdminController extends Controller
             $input = $request->only('name', 'full_name', 'password', 'role_id', 'tech_id', 'status');
             $input['password'] = bcrypt($input['password']);
             $input['status'] = $request->status ?? 'inactive';
+
+            $user = auth()->guard('admin')->user();
+
+            $input['user_id'] = $user->id;
 
             $admin = Admin::create($input);
             $role = Role::select('name')->where('id', $input['role_id'])->first();

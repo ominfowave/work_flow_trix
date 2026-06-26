@@ -13,7 +13,15 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $project = Project::with(['productFile', 'getClient', 'getUser'])->get();
+        $project = Project::with(['productFile', 'getClient', 'getUser']);
+        $user = auth()->guard("admin")->user();
+
+        if(!$user->hasRole('Super-admin')){
+            $project = $project->where('user_id', $user->id);
+        }
+
+        $project = $project->get();
+        
         $this->data['project'] = $project;
 
         return view('project.index', $this->data);
@@ -52,6 +60,7 @@ class ProjectController extends Controller
             if($admin && $admin == 'vishal'){
                 $input['project_type'] = 'approved';
             }
+            $input['user_id'] = $user->id;
             
             $project = Project::create($input);
 

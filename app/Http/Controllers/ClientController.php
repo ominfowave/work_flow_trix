@@ -21,7 +21,16 @@ class ClientController extends Controller
 
     public function index()
     {
-        $clients = Client::select('id', 'name', 'email', 'phone', 'status')->get();
+        $clients = Client::select('id', 'name', 'email', 'phone', 'status');
+
+        $user = auth()->guard("admin")->user();
+
+        if(!$user->hasRole('Super-admin')){
+            $clients = $clients->where('user_id', $user->id);
+        }
+
+        $clients = $clients->get();
+
         $this->data['clients'] = $clients;
 
         return view('client.index', $this->data);
@@ -53,10 +62,12 @@ class ClientController extends Controller
             $input['password'] = md5($request->password);
             $input['status'] = $request->status ?? 'inactive';
     
-            $admin = auth()->guard('admin')->user()->name ?? null;
-            if($admin && $admin == 'vishal'){
+            $admin = auth()->guard('admin')->user();
+            if($admin->name && $admin->name == 'vishal'){
                 $input['client_type'] = 'approved';
             }
+
+            $input['user_id'] = $admin->id;
 
             $client = Client::create($input);
 
