@@ -252,7 +252,7 @@
     function sendMessage()
     {
         var message = $('.chat-input').val();
-        if(message !== ''){
+        if(message !== '' || selectedFiles.length > 0){
             // var receiver_id = $(".jsreceiver_id").data('receiver_id');
             var receiver_id = $(document).find(".jsmsgContent").attr("data-receiver_id");
     
