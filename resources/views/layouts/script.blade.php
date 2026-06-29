@@ -364,4 +364,112 @@
            });
         }
     });
+
+     function getFileIcon(ext) {
+        ext = ext.toLowerCase();
+
+        const icons = {
+            pdf: "./images/pdf-file-icon.svg",
+            doc: "./images/word-file-icon.svg",
+            docx: "./images/word-file-icon.svg",
+            xls: "./images/excell-file-icon.svg",
+            xlsx: "./images/excell-file-icon.svg",
+            jpg: "./images/jpg-file-icon.svg",
+            jpeg: "./images/jpg-file-icon.svg",
+            png: "./images/jpg-file-icon.svg",
+            gif: "./images/jpg-file-icon.svg",
+            webp: "./images/jpg-file-icon.svg"
+        };
+
+        return icons[ext]
+            ? `<img src="${icons[ext]}" alt="">`
+            : '<i class="fa-regular fa-file file-icon"></i>';
+    }
+
+    $('#fileInput').change(function () {
+
+        $.each(this.files, function (_, file) {
+
+            const ext = file.name.split('.').pop();
+
+            $('#fileList').append(`
+                <div class="file-card">
+                    <div class="file-left">
+                        ${getFileIcon(ext)}
+                        <div class="file-info">
+                            <div class="file-name">${file.name}</div>
+                            <div class="file-size">${(file.size / 1024).toFixed(0)} KB</div>
+                        </div>
+                    </div>
+                    <span class="remove">
+                        <img src="./images/close.svg" alt="">
+                    </span>
+                </div>
+            `);
+        });
+
+    });
+
+    $(document).on('click', '.remove', function () {
+        $(this).closest('.file-card').remove();
+    });
+
+    $('#sendBtn').click(function () {
+
+        const message = $.trim($('#editor').val());
+
+        if (!message) return;
+
+        alert("Message Sent: " + message);
+
+        $('#editor').val('').css('height', '80px');
+    });
+
+
+    const $chatDetails = $("#chat-details-pop");
+    const $messageMain = $(".message-main-pop");
+    const $messageBody = $(".message-body");
+    const $downBtn = $(".double-down-btn");
+
+    // Scroll to bottom
+    $downBtn.on("click", function () {
+        $messageBody.animate({
+            scrollTop: $messageBody[0].scrollHeight
+        }, 500);
+    });
+
+    // Show/Hide down button
+    $messageBody.on("scroll", function () {
+        const isBottom =
+            this.scrollTop + this.clientHeight >= this.scrollHeight - 5;
+
+        if (isBottom) {
+            $downBtn.hide();
+        } else {
+            $downBtn.show();
+        }
+    });
+
+    // Open chat list
+    $("#chat-btn").on("click", function () {
+        $chatDetails.addClass("show");
+    });
+
+    // Close chat list
+    $(".message-close-btn").on("click", function () {
+        $chatDetails.removeClass("show");
+    });
+
+    // Open message
+    $(".chat-user-details-pop").on("click", function () {
+        $chatDetails.removeClass("show");
+        $messageMain.addClass("show");
+    });
+
+    // Back to chat list
+    $(".close-chat").on("click", function () {
+        $messageMain.removeClass("show");
+        $chatDetails.addClass("show");
+    });
+
 </script>
