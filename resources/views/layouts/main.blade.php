@@ -44,36 +44,7 @@
             </div>
 
             <div class="chat-users-details">
-                <div class="chat-user-details-pop" id="user_click">
-                    <div class="chat-user">
-                        <img src="{{asset('/images/dp-img.png')}}" alt="">
-                    </div>
-                    <div class="chat-and-duration">
-                        <div class="chatuser-name-details">
-                            <h3>Jeff Marcos</h3>
-                            <p>Please sent me details</p>
-                        </div>
-                        <div class="chatduration">
-                            <p>5h</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="chat-user-details-pop active">
-                    <div class="chat-user">
-                        <img src="{{asset('/images/dp-img.png')}}" alt="">
-                    </div>
-                    <div class="chat-and-duration">
-                        <div class="chatuser-name-details">
-                            <h3>Charile kyle</h3>
-                            <p>Please sent me details</p>
-                        </div>
-                        <div class="chatduration">
-                            <p>2h</p>
-                        </div>
-                    </div>
-                </div>
-
+                
             </div>
         </div>
     </div>
@@ -426,13 +397,13 @@
     <div class="admintogglepopup-main">
         <div class="admintogglepopup-details">
             <div class="admintogglepopup-sub">
-                <img src="{{asset('/images/info-icon.svg')}}')}}" alt="">
+                <img src="{{asset('/images/info-icon.svg')}}" alt="">
                 <p class="jsStatusPopMsg"></p>
                 <div class="admintogglepopup-btn">
                     <button type="submit" class="yes-btn jsYesBtn">Yes</button>
                     <button type="submit" class="no-btn jsNoBtn">No</button>
                 </div>
-                <button type="button" class="popup-close-icon jspopClose"><img src="{{asset('/images/close.svg')}}')}}" alt=""></button>
+                <button type="button" class="popup-close-icon jspopClose"><img src="{{asset('/images/close.svg')}}" alt=""></button>
             </div>
         </div>
     </div>
@@ -440,13 +411,13 @@
     <div class="admintogglepopup-main-dlt jsDeletePopup">
         <div class="admintogglepopup-details">
             <div class="admintogglepopup-sub">
-                <img src="{{asset('/images/info-icon.svg')}}')}}" alt="">
+                <img src="{{asset('/images/info-icon.svg')}}" alt="">
                 <p class="jsDeletePopupMsg"></p>
                 <div class="admintogglepopup-btn">
                     <button type="submit" class="yes-btn jsYesBtnDlt">Yes</button>
                     <button type="submit" class="no-btn jsNoBtnDlt">No</button>
                 </div>
-                <button type="button" class="popup-close-icon jspopCloseDlt"><img src="{{asset('/images/close.svg')}}')}}" alt=""></button>
+                <button type="button" class="popup-close-icon jspopCloseDlt"><img src="{{asset('/images/close.svg')}}" alt=""></button>
             </div>
         </div>
     </div>
@@ -454,14 +425,14 @@
     <div class="chatimagepopup-main">
         <div class="chatimagepopup-details">
             <div class="chatimagepopup">
-                <img src="')}}" alt="">
+                <img src="" alt="">
             </div>
             <div class="chatimagepopup-img-name">
                 <h5 class="jsChatFile"></h5>
                 {{-- <p>Ramshi.kanotara <span>Share in Ramshi.kanotara</span></p> --}}
             </div>
             <div class="chatimagepopup-download-closed">
-                <a class="jsChatDownFile" href="" download><img src="{{asset('/images/download-white-icon.svg')}}')}}" alt=""></a>
+                <a class="jsChatDownFile" href="" download><img src="{{asset('/images/download-white-icon.svg')}}" alt=""></a>
                 <a href="#" class="closeicon"><img src="{{asset('/images/close-white-icon.svg')}}"  alt=""></a>
             </div>
         </div>

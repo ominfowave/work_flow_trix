@@ -451,8 +451,18 @@
     });
 
     // Open chat list
-    $("#chat-btn").on("click", function () {
-        $chatDetails.addClass("show");
+    $(document).find("#chat-btn").on("click", function () {
+        
+        $.ajax({
+            url: '{{route("message.index")}}',
+            type: 'get',
+            data: {"ispopmsg":true},
+            success: function(response){
+
+                $(document).find(".chat-users-details").html(response.html);
+                $chatDetails.addClass("show");
+            }
+        });
     });
 
     // Close chat list
@@ -461,9 +471,60 @@
     });
 
     // Open message
-    $(".chat-user-details-pop").on("click", function () {
-        $chatDetails.removeClass("show");
-        $messageMain.addClass("show");
+    $(document).ready(function(){
+        $(document).on("click", ".chat-user-details-pop", function () {
+            
+            $chatDetails.removeClass("show");
+            $messageMain.addClass("show");
+        });
+
+        $(document).on("click", ".jsUserDetails", function(){
+            var currentEle = $(this);
+            var receiver_active_id = currentEle.attr("data-userid");
+
+            $(document).find(".jsUserDetails").removeClass("active");
+            currentEle.addClass("active");
+
+            var url = '{{route("message.index")}}';
+            var receiverName = currentEle.find(".jsRecName").text();
+            $(document).find(".jsshowmoreEle").remove();
+
+            $.ajax({
+                url: url,
+                type: "get",
+                data: {receiver_active_id:receiver_active_id},
+                success: function(response){
+                    $(".jsActiveUser").html(receiverName);
+                    $(".message-user-heading, .message-send-file").css("display","block");
+                    if(response.html){
+                        if(response.showMore){
+
+                            if(!$(document).find(".jsshowmoreEle").length){
+                                var showmore = `<div class="text-center jsshowmoreEle">
+                                                    <button class="btn btn-primary jsShowMore" data-offset="10" data-receiver_id="${receiver_active_id}">
+                                                        Show More
+                                                    </button>
+                                                </div>`;
+                                $(".jsMessageInner").before(showmore);   
+                            }
+                        }
+                                     
+                        $(".jsMessageInner").html(response.html);
+                    }else{
+                        $(".message-body").find(".jsshowmoreEle").remove();
+                        $(".jsMessageInner").html('<p class="jsNoMsg" style="text-align:center">No messages found.</p>');
+                    }
+                    $(".jsEmptyChat").css("display","none");
+                    scrollToBottom();
+
+                    $(document).find(".jsmsgContent").attr("data-receiver_id", receiver_active_id);
+
+                     $(document).find('#text-custom-trigger').emojiPicker({
+                        button: false
+                    });
+                }
+            });
+        });
     });
 
     // Back to chat list

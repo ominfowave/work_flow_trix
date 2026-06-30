@@ -10,12 +10,12 @@ use Illuminate\Support\Facades\Cache;
 
 class MessageController extends Controller
 {
-    public function index(Request $request){
+    public function index(Request $request, $ispopmsg = false){
 
         $receiver_id = '';
         $sender_id = auth()->guard('admin')->id();
 
-        if($request->ajax()){
+        if($request->ajax() && !isset($request->ispopmsg)){
             $receiver_id = $request->receiver_active_id;
             $offset = $request->offset ?? 0;
 
@@ -64,11 +64,11 @@ class MessageController extends Controller
                 'html' => view('message.chat_list', [
                     'messages' => $chatData['messages'],
                     'receiver_id' => $receiver_id,
-                    'sender_id' => $sender_id,
+                    'sender_id' => $sender_id
                 ])->render(),
                 'count' => $chatData['messages']->count(),
                 'totalCount' => $chatData['totalCount'],
-                'showMore' => $showMore,
+                'showMore' => $showMore
             ]);
         }
 
@@ -123,6 +123,15 @@ class MessageController extends Controller
         );
 
         $this->data['userList'] = $userList;
+
+        if(isset($request->ispopmsg)){
+            return response()->json([
+                'html' => view('message.messagelist_pop', [
+                    'userList' => $userList
+                ])->render(),
+            ]);
+        }
+
         $this->data['sender_id'] = $sender_id;
 
         return view('message.index', $this->data);

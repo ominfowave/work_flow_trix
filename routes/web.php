@@ -51,9 +51,11 @@ Route::middleware('admin')->group(function () {
     Route::post('/logout', [LoginController::class, 'logout'])->name('admin_logout');
     
     // message route
-    Route::get('message', [MessageController::class, 'index'])->name('message.index');
+    Route::get('message/{ispopmsg?}', [MessageController::class, 'index'])->name('message.index');
     Route::post('/send-message', [MessageController::class, 'sendMessage']);
     
+    // message pop up
+
     
     // client route
     Route::resource('/client', ClientController::class);
