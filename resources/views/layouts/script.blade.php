@@ -478,6 +478,40 @@
             $messageMain.addClass("show");
         });
 
+        var $messageBody = $(".message-body");
+
+
+        function scrollToBottom() {
+            if ($messageBody.length) {
+                $messageBody.animate({
+                    scrollTop: $messageBody[0].scrollHeight
+                }, 300);
+            }
+        }
+
+        $(document).on('click', '.jsShowMore', function () {
+            var btn = $(this);
+            var offset = btn.attr('data-offset');
+            var receiver_id = btn.data('receiver_id');
+            
+            $.ajax({
+                url: '{{route("message.index")}}',
+                type: 'GET',
+                data: {
+                    receiver_active_id: receiver_id,
+                    offset: offset
+                },
+                success: function(response) {
+                    if(!response.showMore){
+                        btn.closest('.jsshowmoreEle').remove();
+                    }
+                    $('.message-inner').prepend(response.html);
+                    offset = Number(offset) + 10;
+                    btn.attr('data-offset', offset);
+                }
+            });
+        });
+
         $(document).on("click", ".jsUserDetails", function(){
             var currentEle = $(this);
             var receiver_active_id = currentEle.attr("data-userid");
@@ -486,15 +520,18 @@
             currentEle.addClass("active");
 
             var url = '{{route("message.index")}}';
-            var receiverName = currentEle.find(".jsRecName").text();
-            $(document).find(".jsshowmoreEle").remove();
+            var receiverName = currentEle.find(".jspopUsername").text();
+            var user_role = currentEle.find(".jspopUsername").attr("data-userrole");
+            // $(document).find(".jsshowmoreEle").remove();
+            $(".jsuserpopName").html(receiverName);
+            $(".jsuserpopRole").html(user_role);
 
             $.ajax({
                 url: url,
                 type: "get",
-                data: {receiver_active_id:receiver_active_id},
+                data: {receiver_active_id:receiver_active_id,"is_pop_user": true},
                 success: function(response){
-                    $(".jsActiveUser").html(receiverName);
+
                     $(".message-user-heading, .message-send-file").css("display","block");
                     if(response.html){
                         if(response.showMore){
@@ -505,14 +542,14 @@
                                                         Show More
                                                     </button>
                                                 </div>`;
-                                $(".jsMessageInner").before(showmore);   
+                                $(".message-inner").before(showmore);   
                             }
                         }
                                      
-                        $(".jsMessageInner").html(response.html);
+                        $(".message-inner").html(response.html);
                     }else{
                         $(".message-body").find(".jsshowmoreEle").remove();
-                        $(".jsMessageInner").html('<p class="jsNoMsg" style="text-align:center">No messages found.</p>');
+                        $(".message-inner").html('<p class="jsNoMsg" style="text-align:center">No messages found.</p>');
                     }
                     $(".jsEmptyChat").css("display","none");
                     scrollToBottom();

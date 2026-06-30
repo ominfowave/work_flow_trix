@@ -15,7 +15,7 @@ class MessageController extends Controller
         $receiver_id = '';
         $sender_id = auth()->guard('admin')->id();
 
-        if($request->ajax() && !isset($request->ispopmsg)){
+        if(isset($request->receiver_active_id) && $request->receiver_active_id){
             $receiver_id = $request->receiver_active_id;
             $offset = $request->offset ?? 0;
 
@@ -64,7 +64,8 @@ class MessageController extends Controller
                 'html' => view('message.chat_list', [
                     'messages' => $chatData['messages'],
                     'receiver_id' => $receiver_id,
-                    'sender_id' => $sender_id
+                    'sender_id' => $sender_id,
+                    'is_pop_user' => $request->is_pop_user ?? false
                 ])->render(),
                 'count' => $chatData['messages']->count(),
                 'totalCount' => $chatData['totalCount'],

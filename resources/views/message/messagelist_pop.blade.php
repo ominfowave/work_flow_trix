@@ -6,7 +6,7 @@
             </div>
             <div class="chat-and-duration">
                 <div class="chatuser-name-details">
-                    <h3>{{$user_list->full_name ?? ''}}</h3>
+                    <h3 class="jspopUsername" data-userrole="{{$user_list->role->name ?? ''}}">{{$user_list->full_name ?? ''}}</h3>
                     <p>{{$user_list->last_message ?? ''}}</p>
                 </div>
                 <div class="chatduration">

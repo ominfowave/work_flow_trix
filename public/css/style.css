@@ -763,6 +763,8 @@ img.chatsearchicon {    position: absolute;    top: 6px;    left: 10px;}
 .message-box textarea {        width: 100%;            float: left;            padding: 15px;            border-radius: 25px;            background: #fff;            border: 1px solid #BDBDBD;    
         box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.06);                min-height: 40px;  max-height: 95px;  resize: none;  overflow-y: auto;  box-sizing: border-box;    }
 
+.message-row.right .message-text.popmsgright::before{    background: none !important;}
+.message-row.left .message-text.popmsgleft::after{    background: none !important;}
 
 .message-box textarea::placeholder{    color: #999999;    opacity: 1;}
 .message-file-mog {width: 80px;float: left;display: flex;align-items: center;gap: 10px; position: relative;}

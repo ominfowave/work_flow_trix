@@ -33,7 +33,7 @@
        
     @if ($item->sender_id == $sender_id)
         <div class="message-row right jsreceiver_id" data-receiver_id="{{$receiver_id ?? null}}">
-            <div class="message-text {{$contentCount == 1 ? 'cust-message-text' : ''}}">
+            <div class="message-text {{$contentCount == 1 ? 'cust-message-text' : ''}} popmsgright">
                 <p>{{ $item->message }}</p>
                 @if ($item->messageFile && count($item->messageFile))
                 <div class="chatinner-files">
@@ -124,17 +124,22 @@
             </div>
 
 
-            <div class="messanger-name">
-                <img src="{{asset('/images/dp-img.png')}}" alt="">
-            </div>
+            @if (!isset($is_pop_user))
+                <div class="messanger-name">
+                    <img src="{{asset('/images/dp-img.png')}}" alt="">
+                </div>
+            @endif
         </div>
     @else
         <div class="message-row left jsreceiver_id" data-receiver_id="{{$receiver_id ?? null}}">
-            <div class="messanger-name">
-                <img src="{{asset('/images/dp-img.png')}}" alt="">
-            </div>
+            @if (!isset($is_pop_user))
+                <div class="messanger-name">
+                    <img src="{{asset('/images/dp-img.png')}}" alt="">
+                </div>
+            @endif
+
            
-             <div class="message-text {{$contentCount == 1 ? 'cust-message-text' : ''}}">
+             <div class="message-text {{$contentCount == 1 ? 'cust-message-text' : ''}} popmsgleft">
                 <p>{{ $item->message }}</p>
                 @if ($item->messageFile)
                 <div class="chatinner-files">
