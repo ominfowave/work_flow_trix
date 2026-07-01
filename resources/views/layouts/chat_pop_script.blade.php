@@ -99,7 +99,37 @@
 
 
     // Open message
+    $(document).find('#create').click(function(e) {
+        $(document).find("#text-custom-trigger").emojiPicker('toggle');
+    });
+
+
     $(document).ready(function(){
+
+        $(document).on('keyup', '.jsUserSearch', function () {
+            var search_input = $(this).val().toLowerCase();
+            var ismatchUser = false;    
+            $(".jsNoUserFount").remove();
+
+            $(".jspopUsername").each(function () {
+                var userName = $(this).text().toLowerCase();
+
+                if(userName.includes(search_input)){
+                    ismatchUser = true;    
+
+                    $(this).closest('.jsUserDetailsPop').show();
+                }else{
+                    $(this).closest('.jsUserDetailsPop').hide();
+                }
+            });
+            
+            if(!ismatchUser){
+                $(".chat-users-details").append(`<div class="chat-user-details jsUserDetails jsNoUserFount" data-userid="2" id="user_click" style="display: flex;">
+                                                    <h4>No Users found.</h4>
+                                                </div>`);
+            }
+        });
+
         $(document).on("click", ".chat-user-details-pop", function () {
             
             $chatDetails.removeClass("show");
@@ -246,6 +276,9 @@
                      $(document).find('#text-custom-trigger').emojiPicker({
                         button: false
                     });
+                    if(!$(".emojiPicker").hasClass("popemojiPicker")){
+                        $(".emojiPicker").addClass("popemojiPicker");
+                    }
                 }
             });
         });

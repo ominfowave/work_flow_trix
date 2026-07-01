@@ -41,7 +41,7 @@
                 <button class="message-close-btn"><img src="{{asset('/images/close.svg')}}" alt=""></button>
             </div>
             <div class="chart-search-box">
-                <input type="text" placeholder="Search.....">
+                <input type="text" class="jsUserSearch" placeholder="Search.....">
                 <img class="chatsearchicon" src="{{asset('/images/search-icon.svg')}}" alt="">
             </div>
 
@@ -82,7 +82,7 @@
                     <div class="chatbox-pop custchatbox-pop">
                         <div class="chatbox-sub-pop">
                             <div class="textareawithsharebtn-pop custtextareawithsharebtn-pop">
-                                <textarea class="editor custeditor" id="editor" placeholder="Enter Message"></textarea>
+                                <textarea class="editor custeditor" id="text-custom-trigger" placeholder="Enter Message"></textarea>
                                 <button type="submit" id="sendBtn" class="send-btn msg-send-btn jsPopSendMsg"><img src="{{asset('/images/chat-shar-icon.svg')}}" alt=""></button>
                                 <div class="">
                                 </div>
@@ -96,7 +96,7 @@
                             <input type="file" id="fileInput" class="jsFileInput" style="display: none;" multiple>
                             <img src="{{asset('/images/file-attach-icon.svg')}}" alt="">
                         </label>
-                        <button class="smiley-btn"><img src="{{asset('/images/smiley-icon.svg')}}" alt=""></button>
+                        <button class="smiley-btn" id="create"><img src="{{asset('/images/smiley-icon.svg')}}" alt=""></button>
                     </div>
                     <button class="double-down-btn"><img src="{{asset('/images/double-down-arow.svg')}}" alt=""></button>
                 </div>

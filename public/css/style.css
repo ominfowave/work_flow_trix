@@ -681,6 +681,10 @@ button.send-btn {border: none;outline: 0;cursor: pointer;margin-left: 10px;}
         left: 1020px !important;
         height: 100px !important;
 }
+
+.emojiPicker.popemojiPicker{
+        left: 856px !important;
+}
 .sections{
     height: 240px !important;
 }
@@ -750,10 +754,10 @@ img.chatsearchicon {    position: absolute;    top: 6px;    left: 10px;}
 .message-row.right{justify-content: right;}
 .message-text {    padding: 5px;    background: #7B9DFF;    border-radius: 5px 0px 5px 5px;    min-width: 75px;    position: relative;    filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.36));}
 
-.message-text::before {    content: "";    width: 9px;    height: 12px;    background: url(../images/right-shap.svg);    position: absolute;    top: 0;    right: -9px;    background-repeat: no-repeat;}
+/* .message-text::before {    content: "";    width: 9px;    height: 12px;    background: url(../images/right-shap.svg);    position: absolute;    top: 0;    right: -9px;    background-repeat: no-repeat;} */
 .message-row.left .message-text {    background: #fff;    position: relative;    border-radius: 0px 5px 5px 5px;}
 .message-row.left .message-text::before{display: none;}
-.message-row.left .message-text::after {content: "";width: 9px;height: 12px;background: url(../images/left-shap.svg);position: absolute;top: 0;left: -9px;background-repeat: no-repeat;}
+/* .message-row.left .message-text::after {content: "";width: 9px;height: 12px;background: url(../images/left-shap.svg);position: absolute;top: 0;left: -9px;background-repeat: no-repeat;} */
 .message-text p {    font-size: 14px;    color: #000;   line-height: 20px;    font-weight: 400;    margin-bottom: 5px;max-width: 200px;}
 .message-row.right .message-text p {   color: #fff;}
 .message-text span{color: #3D3D3D; font-size: 8px;    position: absolute;    bottom: 3px;   right: 4px;    letter-spacing: 0.5px;}
