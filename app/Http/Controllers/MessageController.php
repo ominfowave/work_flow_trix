@@ -141,6 +141,7 @@ class MessageController extends Controller
     public function sendMessage(Request $request){
         $receiver_id = $request->receiver_id;
         $sender_id = auth()->guard('admin')->id();
+        $is_pop_user = $request->is_pop_user ?? false;
 
         $messageData = [
             'sender_id' => $sender_id,
@@ -179,7 +180,7 @@ class MessageController extends Controller
     
         return response()->json([
                 'html' => view('message.new_message', compact(
-                'messages', 'receiver_id'
+                'messages', 'receiver_id', 'is_pop_user'
             ))->render(),
             'success' => true,
             'message' => $message,

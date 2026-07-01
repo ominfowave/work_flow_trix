@@ -28,9 +28,11 @@
         </div>
     </section>
 
-    <div class="comment-chat">
-        <button type="button" class="comment-btn" id="chat-btn"><img src="{{asset('/images/comment-icon.svg')}}" alt=""></button>
-    </div>
+    @if(request()->path() !== 'message')
+        <div class="comment-chat">
+            <button type="button" class="comment-btn" id="chat-btn"><img src="{{asset('/images/comment-icon.svg')}}" alt=""></button>
+        </div>
+    @endif
 
      <div id="chat-details-pop" class="main-chat-details-pop">
         <div class="chat-details-pop">
@@ -50,7 +52,7 @@
     </div>
 
     <div class="message-main-pop">
-        <div class="messagedetails-details-pop">
+        <div class="messagedetails-details-pop jsmsgContent" data-receiver_id="">
             <div class="message-user-heading-pop">
                 <div class="message-user-title-pop">
                     <div class="chat-user-details-pop" id="user_click">
@@ -81,7 +83,7 @@
                         <div class="chatbox-sub-pop">
                             <div class="textareawithsharebtn-pop custtextareawithsharebtn-pop">
                                 <textarea class="editor custeditor" id="editor" placeholder="Enter Message"></textarea>
-                                <button type="submit" id="sendBtn" class="send-btn msg-send-btn"><img src="{{asset('/images/chat-shar-icon.svg')}}" alt=""></button>
+                                <button type="submit" id="sendBtn" class="send-btn msg-send-btn jsPopSendMsg"><img src="{{asset('/images/chat-shar-icon.svg')}}" alt=""></button>
                                 <div class="">
                                 </div>
                             </div>
@@ -91,7 +93,7 @@
                     </div>
                     <div class="toolbar custtoolbar">
                         <label class="attach-btn custattach-btn">
-                            <input type="file" id="fileInput" style="display: none;" multiple>
+                            <input type="file" id="fileInput" class="jsFileInput" style="display: none;" multiple>
                             <img src="{{asset('/images/file-attach-icon.svg')}}" alt="">
                         </label>
                         <button class="smiley-btn"><img src="{{asset('/images/smiley-icon.svg')}}" alt=""></button>
@@ -156,5 +158,10 @@
      @yield("script")
 
 @include('layouts.script') 
+
+@if(request()->path() !== 'message')
+    @include('layouts.chat_pop_script') 
+@endif
+
 </body>
 </html>

@@ -1,6 +1,6 @@
 @if (count($userList))
     @foreach ($userList as $user_list)
-        <div class="chat-user-details-pop jsUserDetails" data-userid="{{$user_list->id}}">
+        <div class="chat-user-details-pop jsUserDetailsPop" data-userid="{{$user_list->id}}">
             <div class="chat-user">
                 <img src="{{asset('/images/dp-img.png')}}" alt="">
             </div>

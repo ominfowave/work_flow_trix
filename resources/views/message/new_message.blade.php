@@ -96,7 +96,9 @@
     </div>
 
 
-    <div class="messanger-name">
-        <img src="{{asset('/images/dp-img.png')}}" alt="">
-    </div>
+    {{-- @if ($is_pop_user == false)
+        <div class="messanger-name">
+            <img src="{{asset('/images/dp-img.png')}}" alt="">
+        </div>
+    @endif --}}
 </div>

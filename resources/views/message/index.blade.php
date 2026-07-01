@@ -227,9 +227,6 @@
 
                 $('.jsMessageInner').append(`
                     <div class="message-row left">
-                        <div class="messanger-name">
-                            <img src="/images/dp-img.png" alt="">
-                        </div>
 
                         <div class="message-text ${data.message.message_file?.length == 1 ? 'cust-message-text' : ''}">
                             <p>${data.message.message ?? ''}</p>
@@ -423,6 +420,7 @@
         });
 
         $(document).on("click", ".jsUserDetails", function(){
+            
             var currentEle = $(this);
             var receiver_active_id = currentEle.attr("data-userid");
 

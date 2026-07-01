@@ -2,8 +2,6 @@
     $lastDate = '';
 @endphp
 
-
-
 @foreach ($messages as $item)
 
     @php
@@ -124,19 +122,19 @@
             </div>
 
 
-            @if (!isset($is_pop_user))
+            {{-- @if ($is_pop_user == false)
                 <div class="messanger-name">
                     <img src="{{asset('/images/dp-img.png')}}" alt="">
                 </div>
-            @endif
+            @endif --}}
         </div>
     @else
         <div class="message-row left jsreceiver_id" data-receiver_id="{{$receiver_id ?? null}}">
-            @if (!isset($is_pop_user))
+            {{-- @if ($is_pop_user == false)
                 <div class="messanger-name">
                     <img src="{{asset('/images/dp-img.png')}}" alt="">
                 </div>
-            @endif
+            @endif --}}
 
            
              <div class="message-text {{$contentCount == 1 ? 'cust-message-text' : ''}} popmsgleft">
