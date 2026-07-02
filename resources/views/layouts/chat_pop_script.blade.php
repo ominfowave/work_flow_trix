@@ -289,4 +289,48 @@
         $messageMain.removeClass("show");
         $chatDetails.addClass("show");
     });
+
+    $(document).on('click', '.imagepopup, .imagepopupPdf', function () {
+            
+        var imgSrc = $(this).attr('src');
+        var file_name = $(this).attr("data-file");
+        var pdfFile = $(this).attr("data-filesrc");
+        
+        $(document).find('.chatimagepopup img').attr('src', '');
+        $(document).find('.chatimagepopup-details iframe').remove();
+        $(document).find(".jsChatDownFile").show();
+
+        if(pdfFile){
+            $(document).find(".jsChatDownFile").hide();
+            $(document).find('.chatimagepopup-details').prepend(`<iframe src="${pdfFile}" width="100%" height="600px"></iframe>`);
+        }else{
+            $(document).find('.chatimagepopup img').attr('src', imgSrc);
+            $(document).find(".jsChatDownFile").attr('href', imgSrc);
+        }
+        
+        $(document).find('.chatimagepopup-main').addClass('active');
+
+        $(document).find(".jsChatFile").text("").text(file_name);
+    });
+
+    $(document).on('click', '.closeicon', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        $('.chatimagepopup-main').removeClass('active');
+    });
+
+    $(document).on('click', '.chatimagepopup-details', function (e) {
+        if($(e.target).hasClass('chatimagepopup-details')){
+            $('.chatimagepopup-main').removeClass('active');
+        }
+    });
+
+    $(document).on('click', '.jsIsNotPdf', function () {
+        var fileUrl = $(this).attr('data-filesrc');
+
+        var link = document.createElement('a');
+        link.href = fileUrl;
+        link.download = fileUrl.split('/').pop();
+        link.click();
+    });
 </script>
