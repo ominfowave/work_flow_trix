@@ -24,28 +24,38 @@
                         @foreach($roles as $role)
                             <div class="projectsdetails">
                                 <div class="client_project-desc">
-                                    <div class="admin-role-left admin-users">
+                                    <div class="admin-clients-left admin-users">
                                         <div class="project-name-dt cient_project-name-dt">
-                                            <div class="project-name">
+                                            <div class="project-name admin-permission">
                                                 <p>{{ $role->name }}</p>
                                                 @if (count($role->permissions))
-                                                    <br>
-                                                    <p style="font-size: 12px">
-                                                        <b>Permission:</b>
-                                                        @foreach ($role->permissions as $itemkey => $item)
-                                                            @if ($role->permissions->keys()->last() == $itemkey)
-                                                                {{ $item['name'] . "." }}
-                                                            @else    
-                                                                {{ $item['name'] . "," }}
-                                                            @endif
+                                                    <p>Permissions:</p>
+
+                                                    <div class="cliet-user-project">
+                                                        @php
+                                                            $permissions = $role->permissions->groupBy(function ($permission) {
+                                                                return explode('-', $permission->name)[0];
+                                                            });
+                                                        @endphp
+                                                       
+                                                        @foreach ($permissions as $module => $items)
+                                                            <div class="cliet-user-project-desc">
+                                                                <h6>{{ ucfirst($module) }}</h6>
+
+                                                                <ul>
+                                                                    @foreach ($items as $permission)
+                                                                        <li>{{ explode('-', $permission->name)[1] }}</li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            </div>
                                                         @endforeach
-                                                    </p>
+                                                    </div>
                                                 @endif
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="admin-role-right">
+                                    <div class="admin-clients-right">
                                         <div class="client_edit_remove_details">
                                             <div class="toggle-container">
                                                 <label class="cust_switch">
