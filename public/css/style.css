@@ -731,7 +731,8 @@ img.chatsearchicon {    position: absolute;    top: 6px;    left: 10px;}
 .chat-user {    position: relative;    float: left;   }
 .chat-notification {position: absolute;top: 0;right: -6px;width: 20px;height: 20px;background: #CC1F1F;border-radius: 50%;color: #fff;font-size: 10px; text-align: center;border: 2px solid #fff;    line-height: 17px;}
 .chat-user img {    width: 50px;    height: 50px;    object-fit: cover;    object-position: center;}
-.chat-users-details {    width: 100%;    float: left; margin-top: 20px;}
+.chat-users-details {    width: 100%;    float: left; margin-top: 20px;height: 297px;overflow-x: hidden;overflow-y: auto;}
+.chat-users-details.messages-room{height: 415px;}
 .chat-user-details {  cursor: pointer;  width: 100%;    float: left;    display: flex;    align-items: center;    gap: 10px;    padding: 10px;    border-radius: 8px;}
 .chat-user-details.active {    background: #F6F6F6;}
 .chat-and-duration {    display: flex;    align-items: start; width: 100%;    float: left;}

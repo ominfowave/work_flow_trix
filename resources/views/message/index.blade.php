@@ -10,7 +10,7 @@
                 <input type="text" class="jsUserSearch" placeholder="Search.....">
                 <img class="chatsearchicon" src="{{asset('/images/search-icon.svg')}}" alt="">
             </div>
-            <div class="chat-users-details">
+            <div class="chat-users-details messages-room">
 
                 @if (count($userList))
                     @foreach ($userList as $user_list)
