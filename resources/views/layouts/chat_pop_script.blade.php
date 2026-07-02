@@ -106,6 +106,136 @@
 
     $(document).ready(function(){
 
+        Pusher.logToConsole = true;
+        var receiver_id = '{{auth()->guard("admin")->id()}}';
+        var pusher_app_key = '{{ ENV('PUSHER_APP_KEY') }}';
+
+        const pusher = new Pusher(pusher_app_key, {
+            cluster: 'mt1'
+        });
+
+        const USER_ID = receiver_id;
+        const channel = pusher.subscribe('chat.' + USER_ID);
+        
+        channel.bind('new-message', function(data) {
+            var currentMsgActive = $(document).find(".jsmsgContent").attr("data-receiver_id");
+            
+            if(data.message.sender_id == currentMsgActive){
+                let chatBox = $(document).find('.message-inner');
+
+                var filesHtml = '';
+
+                if (data.message.message_file && data.message.message_file.length > 0) {
+
+                    $.each(data.message.message_file, function(index, file) {
+
+                        var fileName = file.file_name;
+                        var extension = fileName.split('.').pop().toLowerCase();
+                        var fileUrl = '/chat-files/' + fileName;
+
+                        let extraClass = extension === 'pdf' ? 'imagepopupPdf' : 'jsIsNotPdf';
+
+                        if ($.inArray(extension, ['jpg', 'jpeg', 'png']) !== -1) {
+
+                            if (data.message.message_file.length == 1) {
+
+                                filesHtml += `
+                                    <div class="chatinner-images single-image">
+                                        <div class="sub-chatiner-img cust-sub-chatiner-img">
+                                            <img class="imagepopup"
+                                                data-file="${fileName}"
+                                                src="${fileUrl}" alt="">
+
+                                            <a href="${fileUrl}" download>
+                                                <div class="signle-image-download-arrow">
+                                                    <img class="img_down" src="/images/download-icon.svg" alt="">
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                `;
+                            } else {
+
+                                filesHtml += `
+                                    <div class="file-card">
+                                        <div class="file-left cust-file-left ${extraClass}">
+                                            <img class="imagepopup"
+                                                src="${fileUrl}" alt="">
+
+                                            <div class="file-info">
+                                                <div class="file-name">
+                                                    <div class="file-name cust-file-name">
+                                                        ${fileName}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <a href="${fileUrl}" download>
+                                            <div class="file-download-arrow">
+                                                <img class="img_down" src="/images/download-icon.svg" alt="">
+                                            </div>
+                                        </a>
+                                    </div>
+                                `;
+                            }
+
+                        } else {
+
+                            let icon = '/images/file-icon.svg';
+
+                            if (extension === 'pdf') {
+                                icon = '/images/pdf-file-icon.svg';
+                            } else if (extension === 'doc' || extension === 'docx') {
+                                icon = '/images/word-file-icon.svg';
+                            } else if (extension === 'xls' || extension === 'xlsx') {
+                                icon = '/images/excell-file-icon.svg';
+                            }
+
+                            filesHtml += `
+                                <div class="file-card">
+                                    <div class="file-left cust-file-left ${extraClass}"
+                                        data-filesrc="${fileUrl}">
+                                        <img src="${icon}" alt="">
+
+                                        <div class="file-info">
+                                            <div class="file-name">
+                                                <div class="file-name cust-file-name">
+                                                    ${fileName}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <a href="${fileUrl}" download>
+                                        <div class="file-download-arrow">
+                                            <img class="img_down" src="/images/download-icon.svg" alt="">
+                                        </div>
+                                    </a>
+                                </div>
+                            `;
+                        }
+                    });
+                }
+
+                $('.message-inner').append(`
+                    <div class="message-row left">
+
+                        <div class="message-text ${data.message.message_file?.length == 1 ? 'cust-message-text' : ''}">
+                            <p>${data.message.message ?? ''}</p>
+
+                            ${filesHtml ? `<div class="chatinner-files">${filesHtml}</div>` : ''}
+
+                            <span>Just now</span>
+                        </div>
+                    </div>
+                `);
+
+                $('.message-inner').scrollTop($('.message-inner')[0].scrollHeight);
+            }
+        });
+
+
         $(document).on('keyup', '.jsUserSearch', function () {
             var search_input = $(this).val().toLowerCase();
             var ismatchUser = false;    
