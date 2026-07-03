@@ -37,19 +37,31 @@
 
 @endphp 
 <div class="form-input create-form-details">
-    <input type="text" placeholder="Client Name" name="name" class="test" value="{{$client_name}}">
+    <div class="lable">
+        <label for="name">Client Name</label>
+    </div>
+    <input type="text" placeholder="Client Name" name="name" id="name" class="test" value="{{$client_name}}">
 </div>
 
 <div class="form-input create-form-details">
-    <input type="text" placeholder="Client-Email" name="email" value="{{$client_email}}">
+    <div class="lable">
+        <label for="email">Client Email</label>
+    </div>
+    <input type="text" placeholder="Client-Email" id="email" name="email" value="{{$client_email}}">
 </div>
 
 <div class="form-input create-form-details">
-    <input type="number" placeholder="Contact No" name="phone" value="{{$client_phone}}">
+    <div class="lable">
+        <label for="phone">Contact No</label>
+    </div>
+    <input type="number" placeholder="Contact No" id="phone" name="phone" value="{{$client_phone}}">
 </div>
 
 <div class="form-input create-form-details">
-    <input type="password" placeholder="Password" name="password" value="" class="jsPassword">
+    <div class="lable">
+        <label for="password">Password</label>
+    </div>
+    <input type="password" placeholder="" name="password" id="password" value="" class="jsPassword">
 </div>
 
 @if (!isset($client->id))

@@ -44,7 +44,10 @@
  <div class="create-form-main createprojectmain">
     <div class="createform-details ">
         <div class="form-input">
-            <input type="text" placeholder="Project Name" name="project_name" value="{{$project_name}}">
+            <div class="lable">
+                <label for="project_name">Project Name</label>
+            </div>
+            <input type="text" placeholder="Enter the project name" name="project_name" id="project_name" value="{{$project_name}}">
         </div>
         <div class="form-input">
             <div class="select-project-ddl">
@@ -88,12 +91,18 @@
             </div>
         </div>
         <div class="form-input">
-            <textarea class="project-textarea" placeholder="Project Description" name="description">{{$description}}</textarea>
+             <div class="lable">
+                <label for="description">Project Description</label>
+            </div>
+            <textarea class="project-textarea" placeholder="Enter the project description" id="description" name="description">{{$description}}</textarea>
         </div>
     </div>
 
     <div class="uploadfile-details">
         <div class="form-input">
+            <div class="lable">
+                <label for="">Upload Files</label>
+            </div>
             <label class="attachment-box attachment-file">
                 <div class="attachment-text">Upload Files</div>
                 <div class="upload-btn file-uploaded"><img src="{{ asset('/images/file-upload.svg')}}" alt=""></div>

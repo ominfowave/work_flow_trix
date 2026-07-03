@@ -15,7 +15,7 @@
                 <h2>Create Client</h2>
             </div>
             <div class="create-form-main">
-                <form action="{{route('client.store')}}" method="post" class="clientForm">
+                <form action="{{route('client.store')}}" method="post" class="clientForm" autocomplete="off">
                     <div class="create-form-main">
                         @include('client.form')
                         @csrf

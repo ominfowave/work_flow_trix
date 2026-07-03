@@ -12,7 +12,10 @@
 @endphp 
 
  <div class="form-input create-form-details">
-    <input type="text" placeholder="Role Name" name="name" value="{{ isset($role) ? $role->name : old('name') }}" required>
+    <div class="lable">
+        <label for="name">Role Name</label>
+    </div>
+    <input type="text" placeholder="Role Name" id="name" name="name" value="{{ isset($role) ? $role->name : old('name') }}" required>
 </div>
 
 <div class="create-role-main">

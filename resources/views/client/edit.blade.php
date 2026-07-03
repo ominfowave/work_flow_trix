@@ -15,7 +15,7 @@
                 <h2>Update Client</h2>
             </div>
             <div class="create-form-main">
-                <form action="{{route('client.update', $client->id)}}" method="POST" class="clientForm">
+                <form action="{{route('client.update', $client->id)}}" method="POST" class="clientForm" autocomplete="off">
                     @csrf
                     @method('PUT')
                     @include('client.form')

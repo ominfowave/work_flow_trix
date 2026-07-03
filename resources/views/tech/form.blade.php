@@ -11,6 +11,9 @@
 
 @endphp 
 <div class="form-input create-form-details">
+    <div class="lable">
+        <label for="tech_name">Tech Name</label>
+    </div>
     <input type="text" placeholder="Tech Name" name="tech_name" value="{{$tech->tech_name ?? ''}}">
 </div>
 

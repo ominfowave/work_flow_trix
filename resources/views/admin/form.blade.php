@@ -33,11 +33,17 @@
 
 @endphp 
 <div class="form-input create-form-details">
-    <input type="text" placeholder="Full Name" name="full_name" class="" value="{{$full_name}}" autocomplete="full_name">
+    <div class="lable">
+        <label for="full_name">Full Name</label>
+    </div>
+    <input type="text" placeholder="Full Name" name="full_name" id="full_name" class="" value="{{$full_name}}" autocomplete="full_name">
 </div>
 
 <div class="form-input create-form-details">
-    <input type="text" placeholder="User Name" name="name" class="" value="{{$user_name}}" autocomplete="name">
+     <div class="lable">
+        <label for="name">User Name</label>
+    </div>
+    <input type="text" placeholder="User Name" name="name" id="name" class="" value="{{$user_name}}" autocomplete="off">
 </div>
 
  <div class="form-input create-form-details">
@@ -69,7 +75,10 @@
 </div>
 
 <div class="form-input create-form-details">
-    <input type="password" placeholder="Password" name="password" value="" class="jsPassword" autocomplete="new-password">
+     <div class="lable">
+        <label for="password">Password</label>
+    </div>
+    <input type="password" placeholder="Password" name="password" value="" id="password" class="jsPassword" autocomplete="new-password">
 </div>
 
 @if (!isset($admin->id))
