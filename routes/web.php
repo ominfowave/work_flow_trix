@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{LoginController, DashboardController, ClientController, MessageController, TechController, RoleController, AdminController, ProjectController, ProjectTimelineController, NotificationController, UserController};
+use App\Http\Controllers\{LoginController, DashboardController, ClientController, MessageController, TechController, RoleController, AdminController, ProjectController, ProjectTimelineController, NotificationController, UserController, SettingController};
 use App\Events\MessageSent;
 use Illuminate\Http\Request;
 use App\Models\Message;
@@ -21,10 +21,10 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-Route::get('/register/users', [UserController::class, 'create']);
+Route::get('/register/users/{link}', [UserController::class, 'create'])->name('register.users');
 Route::post('/register/store', [UserController::class, 'store'])->name('user_register');
 
-Route::get('/register/clients', [ClientController::class, 'registerClient']);
+Route::get('/register/clients/{link}', [ClientController::class, 'registerClient'])->name('register.clients');
 Route::post('/register/client/store', [ClientController::class, 'storeClient'])->name('client_register');
 
 
@@ -91,4 +91,8 @@ Route::middleware('admin')->group(function () {
 
     // notification
     Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications');
+
+    // setting
+    Route::get('/setting', [SettingController::class, 'index'])->name('setting');
+    Route::post('/generate-Link', [SettingController::class, 'generateLink'])->name('generateLink');
 });

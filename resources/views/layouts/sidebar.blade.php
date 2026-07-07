@@ -36,6 +36,12 @@
                     <a href="{{route('role.index')}}" class="{{ request()->routeIs('role.*') ? 'active' : '' }}"><img src="{{asset('/images/role-icon.svg')}}" alt=""><span>Roles</span></a>
                 </li>
             @endif
+
+            @if ($user->hasRole('Super-admin'))
+                <li>
+                    <a href="{{route('setting')}}" class="{{ request()->routeIs('setting') ? 'active' : '' }}"><img class="setting-icon" src="{{asset('/images/setting.png')}}" alt=""><span>Setting</span></a>
+                </li>
+            @endif
         </ul>
     </div>
 </div>

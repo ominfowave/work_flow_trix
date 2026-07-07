@@ -1,0 +1,14 @@
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<mask id="mask0_1367_203" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
+<rect width="20" height="20" fill="url(#pattern0_1367_203)"/>
+</mask>
+<g mask="url(#mask0_1367_203)">
+<rect width="20" height="20" fill="#565656"/>
+</g>
+<defs>
+<pattern id="pattern0_1367_203" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0_1367_203" transform="scale(0.03125)"/>
+</pattern>
+<image id="image0_1367_203" width="32" height="32" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAA7AAAAOwBeShxvQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAPVSURBVFiFpddfiNVVEAfwz725a4qVJq1JpbYrBFIRVEa2pVRQlj1FJYW9Si9JPVhRhg9RkiDZi/TvNSKoLDXrIS1Xy/xDlj4EZSWJpqb2h4qQ1R5mfvXbX797965+4XB/d86cmTlz5szMaegc52EubsZVuBTjcQq/4jvswga8j99HILst+vBaKtmOk/gIt2F5jtuxMee24xe8gt7hhDfbzI1J4dtwANdgNJ7ErfgQf+T4QHhmCbpxLQ6lMctwdsfbTfRiN95BDxp4Fy9U+JbmKONFvJ3fk7AaX4oj6whX4Cc8XKLNx1axu+EM6BY7v7dEW4SDuHw45dOE65aVaF3Yh1k1/HUGQD++x6gSbZnY2BBPlBm68aaI4PtEpK8Skf4tPh3O+hI2pwH3i+B9CJdhferox9/VRc9irTjvbjyIT0Rkf4bFuEXERIGlhnqgJ3kW55qT+BgLhCcbucHnqsqn4LAImjLG40juZAU25f9BcVTHchxK2pHkWZFrjqSMMi5M+tQycRWer1qFeVhTQ2/mblfm6FF/pdfgzhr6crxUCBqDu9PqKm7CQA39pPDY8RyHk1bFQMqoYkXqHNtMC3eLCK2iv4UBnWIgZVRxEF9hXhM3Yl0LAdPEDThd7E0ZdViP/qZImztqGBo4XwTZ6eJoymjUzG3DzKa4AftqGCaKijZ4BgYM4jdMqJn7ERePSkULcKLGgAYea6Pghvxtx9PA48IbZXRh4igRvRNqDDgXZ7WwvsCY/G3H05Wyqrekq6DtVx8oE/FzG8G0rgVlHG1hYC/2N8VZTKlhOIZzDK0XI0UXxokGpYpLCgO2iZtQxSnhgQvOwIAekXZP1czNxOdNUbnmthDwA6afgQF9KaMOc7GlKSrglaJIVLFZfSbrFP3YUkOfnDrXNvGXaKEeqWEcEJmyivOEZybnmJ60OgM21dAfTZ1/FoQpoqRWy/EEEYwL8apou0+IAvSNaFYP5PfxnNuVvAtzbUflmGgSioZknOjjdolstiEFXi0iu8BSQ69hd/IszDWD+EL0l+NS9jpDW75/MVo0k6+LavUG5uAB8Q6oQ9WAMjbk2jkp62DK3pG6atEryvLTJVqXiOTrR2DALNETlr21JGX3tVJeYIY410Ul2nyRL0bSlt9Toi1KmTOGU16gDzvFo2KSOLvVov0azoCVeCu/J4kHzU4tdt7qabZXuPFr7MEzotOdjafU1/eGcPNsPCG67D0pY1bKPC1MxcviShWP040ikxWP0ztE+108To+JpvN/V63O6k4xFneJ5HIdLvJft3NUnPFWkfneU0oy7fAPCZHsmHbOwkYAAAAASUVORK5CYII="/>
+</defs>
+</svg>
