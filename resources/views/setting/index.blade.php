@@ -22,12 +22,15 @@
                  @php
                     $userLink = "";
                     $isUserGen = 0;
+                    $last_gen = "";
                     if(count($link)){
                         foreach ($link as $linkData) {
                             if($linkData->link_type == 'users'){
                                 $userLink = route('register.users', $linkData->link);
+                                // dd($linkData->created_at);
                                 if($linkData->created_at->isToday()){
                                     $isUserGen = 1;
+                                    $last_gen = $linkData->created_at->format("M d, Y H:i A");
                                 }
                             }
                         }
@@ -56,7 +59,7 @@
                     </div>
                     <div class="link-generate time-generate">
                         <img src="{{asset('/images/last-generate-clock-icon.svg')}}" alt="">
-                        <p>Last generated : June 25, 2026 11:30 AM</p>
+                        <p class="users_date">Last generated : {{$last_gen}}</p>
                     </div>
                 </div>
 
@@ -116,7 +119,7 @@
                     </div>
                     <div class="link-generate time-generate">
                         <img src="{{asset('/images/last-generate-clock-icon.svg')}}" alt="">
-                        <p>Last generated : June 25, 2026 11:30 AM</p>
+                        <p class="clients_date">Last generated : June 25, 2026 11:30 AM</p>
                     </div>
                 </div>
 

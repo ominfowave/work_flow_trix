@@ -9,6 +9,7 @@
                    
                     if(response.link){
                         $("."+moduletype).text(response.link);
+                        $("."+moduletype+"_date").text("Last generated : "+response.last_generate_date);
                     }
                 }
             })
@@ -22,6 +23,7 @@
                 console.log("is_user");
                 
                 generateLink("users");
+                $(this).attr("data-isgen", "1");
             }
         });
     
@@ -30,6 +32,7 @@
             
             if($(this).attr("data-isgen") == '0'){
                 generateLink("clients");
+                $(this).attr("data-isgen", "1");
             }
         });
 
@@ -50,8 +53,6 @@
                 document.execCommand("copy");
 
                 $temp.remove();
-
-                console.log("Copied");
             }
         }
         

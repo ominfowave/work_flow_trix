@@ -16,9 +16,9 @@ class SettingController extends Controller
 
     public function generateLink(Request $request){
         if($request->moduletype !== ""){
-            $link = GenerateLink::where("link_type", $request->moduletype)->where("created_at",'>=', Carbon::now()->subDay())->exists();
+            $link = GenerateLink::where("link_type", $request->moduletype)->where("created_at",'<', Carbon::now())->exists();
 
-            if(!$link){
+            if($link){
                 $generateLinkData = [
                     'link' => uniqid(),
                     'link_type' => $request->moduletype
@@ -30,7 +30,8 @@ class SettingController extends Controller
                 $url = route('register.' . $request->moduletype, $link);
 
                 return response()->json([
-                    'link' => $url
+                    'link' => $url,
+                    'last_generate_date' => $generateLink->created_at->format("M d, Y H:i A")
                 ]);
             }
         }
