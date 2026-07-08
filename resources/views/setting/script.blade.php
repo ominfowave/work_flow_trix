@@ -34,7 +34,25 @@
         });
 
         function copied(text) {
-            navigator.clipboard.writeText(text);
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text)
+                    .done(function () {
+                        console.log("Copied");
+                    })
+                    .fail(function (err) {
+                        console.log("Copy failed:", err);
+                    });
+            } else {
+                var $temp = $("<textarea>");
+                $("body").append($temp);
+
+                $temp.val(text).select();
+                document.execCommand("copy");
+
+                $temp.remove();
+
+                console.log("Copied");
+            }
         }
         
         $(document).on("click", ".jsUserCopy", function(){
