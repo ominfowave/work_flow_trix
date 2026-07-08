@@ -112,13 +112,14 @@ button.btn-icon.logout-btn img {    max-width: 20px;}
 .logo-details.login_desc {    float: left;    width: 100%;    margin-bottom: 36px;}
 .login_desc-register{float: left;    width: 100%;    margin-bottom: 36px;}
 .login-body {background: url(../images/login-bg.jpg);background-repeat: no-repeat;background-size: cover;background-position: inherit;float: left;width: 100%;min-height: 100vh;}
-.login-body-register {background: url(../images/login-bg.jpg);background-repeat: no-repeat;background-size: cover;background-position: inherit;position: fixed;float: left;width: 100%;min-height: 100vh;}
+.login-body-register {background: url(../images/client-regi.png);background-repeat: no-repeat;background-size: cover;background-position: inherit;position: fixed;float: left;width: 100%;min-height: 100vh;}
+.login-body-client {background: url(../images/user-regi.png);background-repeat: no-repeat;background-size: cover;background-position: inherit;position: fixed;float: left;width: 100%;min-height: 100vh;}
 .loginbox {width: 570px;float: right;margin: 40px 65px;}
 .loginbox-bg,.loginbox-bg-register {    padding: 137px 50px;    background: #fff;    border: 1px solid #888787;    border-radius: 20px; text-align: center;}
 .logo-details img {height: 52px;}
 .loginbox-bg h2,.loginbox-bg-register h2 {    margin: 0px 0 30px; color: #000; font-size: 20px; line-height: 28px; font-weight: 500;}
 .input-box input{    width:100%;    border:1px solid #888787;    border-radius:5px;   font-size:16px;    font-weight: 500; padding:18px 40px 20px 15px;}
-.input-box{    position:relative;}
+.input-box{    position:relative;margin-bottom: 15px;}
 .input-box.password-box {    margin: 31px 0 10px;}
 .password-box-user{margin: 0px 0 25px;}
 /* Label Default */

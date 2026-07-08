@@ -15,7 +15,7 @@
 </head>
 
 <body>
-<div class="login-body-register">    
+<div class="login-body-client">    
     <div class="loginbox">
         <div class="main_container">
             <form action="{{route('user_register')}}" method="post" class="userRegisForm">
