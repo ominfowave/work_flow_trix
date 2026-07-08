@@ -1281,7 +1281,7 @@ button.delete-profile-btn {background: #DF1010;    border: none;color: #fff; pad
  
 label.error{color:red;font-size:14px;}
 
-input{display:block;padding:8px;max-width:752px;}
+input{display:block;padding:8px;}
 
 .custom-alert { background: #ffe5e5;color: #b30000; padding: 12px 15px; border-left: 5px solid #ff0000; border-radius: 8px; margin-bottom: 15px; font-weight: 500;}
 
